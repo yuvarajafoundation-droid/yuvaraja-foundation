@@ -1,0 +1,172 @@
+.site-header {
+  height: 68px;
+  background: #f8f7f3;
+  border-bottom: 1px solid #e8e6e1;
+}
+
+.header-inner {
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-decoration: none;
+  color: #171717;
+
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  display: block !important;
+
+  width: 54px !important;
+  height: 54px !important;
+
+  max-width: 54px !important;
+  max-height: 54px !important;
+
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+}
+
+.brand-tamil {
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.brand-english {
+  margin-top: 6px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: #77736d;
+  white-space: nowrap;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+
+.main-nav a {
+  display: block;
+
+  text-decoration: none;
+  color: #3c3a36;
+
+  font-size: 13px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  color: #111;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 25px;
+  white-space: nowrap;
+}
+
+.language-switcher button {
+  border: 0;
+  outline: none;
+  background: transparent;
+
+  padding: 0;
+
+  font-family: inherit;
+  font-size: 11px;
+
+  color: #99958d;
+  cursor: pointer;
+}
+
+.language-switcher button.active {
+  color: #171717;
+  font-weight: 600;
+}
+
+.language-switcher span {
+  color: #c4c0b8;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .header-inner {
+    width: calc(100% - 40px);
+  }
+
+  .main-nav {
+    gap: 18px;
+  }
+
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .language-switcher {
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 850px) {
+  .site-header {
+    height: 78px;
+  }
+
+  .main-nav,
+  .language-switcher {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    margin-left: auto;
+
+    width: 42px;
+    height: 42px;
+
+    border: 0;
+    background: transparent;
+  }
+
+  .mobile-menu span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: #222;
+    margin: 6px auto;
+  }
+
+  .brand-logo {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+  }
+}

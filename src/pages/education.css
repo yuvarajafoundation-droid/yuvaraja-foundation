@@ -1,0 +1,222 @@
+/* ================================
+   YRF EDUCATION PAGE
+   ================================ */
+
+.page-section {
+  min-height: calc(100vh - 90px);
+  padding: 100px 7vw 120px;
+  background: #f7f8f5;
+  box-sizing: border-box;
+}
+
+.page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Small label */
+
+.section-label {
+  display: block;
+  margin-bottom: 24px;
+  color: #18736b;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Main heading */
+
+.page-container h1 {
+  max-width: 900px;
+  margin: 0 0 28px;
+  color: #17231f;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+/* Introduction */
+
+.page-intro {
+  max-width: 780px;
+  margin: 0 0 75px;
+  color: #5c6863;
+  font-size: 20px;
+  line-height: 1.75;
+}
+
+/* Programme detail */
+
+.programme-detail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.programme-detail > div {
+  min-height: 260px;
+  padding: 38px;
+  background: #ffffff;
+  border: 1px solid #e2e7e2;
+  border-radius: 2px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.programme-detail > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(30, 55, 48, 0.08);
+}
+
+/* Number */
+
+.programme-detail span {
+  display: block;
+  margin-bottom: 28px;
+  color: #18736b;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Card heading */
+
+.programme-detail h2 {
+  margin: 0 0 18px;
+  color: #17231f;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+/* Card text */
+
+.programme-detail p {
+  margin: 0;
+  color: #65716c;
+  font-size: 16px;
+  line-height: 1.7;
+}
+/* Programme images */
+
+.programme-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 70px 0 90px;
+}
+
+.programme-images img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 900px) {
+  .page-section {
+    padding: 75px 30px 90px;
+  }
+
+  .page-container h1 {
+    font-size: 48px;
+  }
+
+  .programme-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-section {
+    padding: 55px 22px 70px;
+  }
+
+  .section-label {
+    font-size: 12px;
+  }
+
+  .page-container h1 {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .page-intro {
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 45px;
+  }
+
+  .programme-detail > div {
+    padding: 28px;
+  }
+}
+.programme-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 70px 0 90px;
+}
+
+.programme-images img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .programme-images {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 50px 0 60px;
+  }
+
+  .programme-images img {
+    height: 360px;
+  }
+}
+/* =================================
+   YRF KALVI IMAGES - FINAL OVERRIDE
+================================= */
+
+.programme-images {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  margin: 70px 0 90px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.programme-images img {
+  display: block !important;
+  width: 100% !important;
+  height: 460px !important;
+  object-fit: cover !important;
+  border-radius: 24px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .programme-images {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .programme-images img {
+    height: 360px !important;
+  }
+}

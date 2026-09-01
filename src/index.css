@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f8f7f3;
+  color: #181816;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+/* Tamil typography */
+html[lang="ta"] body,
+html[lang="ta"] button,
+html[lang="ta"] a,
+html[lang="ta"] p,
+html[lang="ta"] h1,
+html[lang="ta"] h2,
+html[lang="ta"] h3 {
+  font-family: 'Noto Sans Tamil', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
