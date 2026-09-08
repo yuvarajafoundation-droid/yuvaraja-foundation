@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import "./App.css";
 import communityImage from "./assets/yrf-community.jpeg";
@@ -14,6 +15,13 @@ import Livelihood from "./pages/livelihood";
 import Environment from "./pages/environment";
 import Shakthi from "./pages/shakthi";
 import Oor from "./pages/oor";
+import AdminLogin from "./admin/AdminLogin";
+import ResetPassword from "./admin/ResetPassword";
+import AdminDashboard from "./admin/AdminDashboard";
+import ProgrammeEditor from "./admin/ProgrammeEditor";
+import ProgrammePhotos from "./admin/ProgrammePhotos";
+import ProgrammeEvents from "./admin/ProgrammeEvents";
+import AddProgramme from "./admin/AddProgramme";
 
 function Home({ language }) {
   const tamil = language === "ta";
@@ -164,8 +172,8 @@ function Home({ language }) {
 
       <h2>
         {tamil
-          ? "ஐந்து திட்டங்கள். ஒரே கண்ணிய அளவு."
-          : "Five programmes. One standard of dignity."}
+          ? "ஆறு திட்டங்கள். ஒரே கண்ணிய அளவு."
+          : "Six programmes. One standard of dignity."}
       </h2>
 
       <p className="programmes-intro">
@@ -177,10 +185,10 @@ function Home({ language }) {
 
     <div className="programme-grid">
 
-      <a href="#education" className="programme-item">
+      <Link to="/programmes/education" className="programme-item">
         <span className="programme-number">01</span>
         <h3>
-          {tamil ? "YRF கல்வி" : "YRF Education"}
+          {tamil ? "YRF கல்வி" : "YRF Kalvi"}
         </h3>
         <p>
           {tamil
@@ -190,12 +198,12 @@ function Home({ language }) {
         <span className="programme-link">
           {tamil ? "மேலும் அறிக" : "Learn more"} →
         </span>
-      </a>
+      </Link>
 
-      <a href="#health" className="programme-item">
+      <Link to="/programmes/wellbeing" className="programme-item">
         <span className="programme-number">02</span>
         <h3>
-          {tamil ? "YRF நலம்" : "YRF Wellbeing"}
+          {tamil ? "YRF நலம்" : "YRF Nalam"}
         </h3>
         <p>
           {tamil
@@ -205,12 +213,12 @@ function Home({ language }) {
         <span className="programme-link">
           {tamil ? "மேலும் அறிக" : "Learn more"} →
         </span>
-      </a>
+      </Link>
 
-      <a href="#livelihoods" className="programme-item">
+      <Link to="/programmes/livelihood" className="programme-item">
         <span className="programme-number">03</span>
         <h3>
-          {tamil ? "YRF வாய்ப்பு" : "YRF Opportunity"}
+          {tamil ? "YRF வாய்ப்பு" : "YRF Vaaippu"}
         </h3>
         <p>
           {tamil
@@ -220,12 +228,12 @@ function Home({ language }) {
         <span className="programme-link">
           {tamil ? "மேலும் அறிக" : "Learn more"} →
         </span>
-      </a>
+      </Link>
 
-      <a href="#rural" className="programme-item">
+      <Link to="/programmes/oor" className="programme-item">
         <span className="programme-number">04</span>
         <h3>
-          {tamil ? "YRF ஊர்" : "YRF Rural"}
+          {tamil ? "YRF ஊர்" : "YRF Oor"}
         </h3>
         <p>
           {tamil
@@ -235,12 +243,12 @@ function Home({ language }) {
         <span className="programme-link">
           {tamil ? "மேலும் அறிக" : "Learn more"} →
         </span>
-      </a>
+      </Link>
 
-      <a href="#support" className="programme-item">
+      <Link to="/programmes/environment" className="programme-item">
         <span className="programme-number">05</span>
         <h3>
-          {tamil ? "YRF துணை" : "YRF Support"}
+          {tamil ? "YRF இயற்கை" : "YRF Iyarkkai"}
         </h3>
         <p>
           {tamil
@@ -250,7 +258,21 @@ function Home({ language }) {
         <span className="programme-link">
           {tamil ? "மேலும் அறிக" : "Learn more"} →
         </span>
-      </a>
+      </Link>
+      <Link to="/programmes/shakthi" className="programme-item">
+        <span className="programme-number">06</span>
+        <h3>
+          {tamil ? "YRF சக்தி" : "YRF Shakthi"}
+        </h3>
+        <p>
+          {tamil
+            ? "பெண்களின் திறன், தன்னம்பிக்கை மற்றும் அதிகாரமளிப்பை வளர்த்தல்."
+            : "Empowering Women with confidence, strength and opportunity."}
+        </p>
+        <span className="programme-link">
+          {tamil ? "மேலும் அறிக" : "Learn more"} →
+        </span>
+      </Link>
 
     </div>
 
@@ -392,6 +414,15 @@ function PlaceholderPage({ title, language }) {
 }
 
 function App() {
+    useEffect(() => {
+    const hash = window.location.hash;
+
+    if (hash.includes("access_token=") && hash.includes("type=recovery")) {
+      window.location.replace(
+        `${window.location.origin}/admin/reset-password${hash}`
+      );
+    }
+  }, []);
   const [language, setLanguage] = useState("ta");
 
   return (
@@ -447,11 +478,29 @@ function App() {
   path="/programmes/environment"
   element={<Environment language={language} />}
 />
+<Route path="/admin/login" element={<AdminLogin />} />
+import ResetPassword from "./admin/ResetPassword";
+<Route path="/admin" element={<AdminDashboard />} />
+<Route path="/admin/programme/add" element={<AddProgramme />} />
+
 
         <Route
   path="/governance"
   element={<Governance language={language} />}
 />
+<Route
+  path="/admin/programme/:slug"
+  element={<ProgrammeEditor />}
+/>
+<Route
+  path="/admin/programme/:slug/photos"
+  element={<ProgrammePhotos />}
+/>
+<Route
+  path="/admin/programme/:slug/events"
+  element={<ProgrammeEvents />}
+/>
+
 
         <Route
           path="/faq"

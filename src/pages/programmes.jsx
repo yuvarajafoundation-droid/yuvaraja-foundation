@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Programmes({ language = "en" }) {
   const tamil = language === "ta";
 
@@ -46,8 +48,8 @@ function Programmes({ language = "en" }) {
     number: "06",
     title: tamil ? "YRF சக்தி" : "YRF Shakthi",
     text: tamil
-      ? "மக்களின் திறன், தன்னம்பிக்கை மற்றும் அதிகாரமளிப்பை வளர்த்தல்."
-      : "Empowering people with confidence, strength and opportunity.",
+      ? "பெண்களின் திறன், தன்னம்பிக்கை மற்றும் அதிகாரமளிப்பை வளர்த்தல்."
+      : "Empowering Women with confidence, strength and opportunity.",
     link: "/programmes/shakthi",
   },
 ];
@@ -63,8 +65,8 @@ function Programmes({ language = "en" }) {
 
           <h1>
             {tamil
-              ? "மரியாதையுடன் முன்னேறுவதற்கான ஐந்து வழிகள்."
-              : "Five programmes. One standard of dignity."}
+              ? "மரியாதையுடன் முன்னேறுவதற்கான ஆறு வழிகள்."
+              : "Six programmes. One standard of dignity."}
           </h1>
 
           <p className="page-intro">
@@ -84,9 +86,9 @@ function Programmes({ language = "en" }) {
 
                 <p>{programme.text}</p>
 
-                <a href={programme.link}>
+                <Link to={programme.link}>
   {tamil ? "மேலும் அறிய" : "Learn more"} →
-</a>
+</Link>
               </article>
             ))}
           </div>

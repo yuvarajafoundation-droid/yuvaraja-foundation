@@ -13,7 +13,7 @@ function About({ language = "en" }) {
 
           <div className="about-hero-content">
             <span className="about-kicker">
-              {tamil ? "யூவராஜா அறக்கட்டளை" : "ABOUT YUVARAJA FOUNDATION"}
+              {tamil ? "யுவராஜா அறக்கட்டளை" : "ABOUT YUVARAJA FOUNDATION"}
             </span>
 
             <h1>
@@ -57,7 +57,7 @@ function About({ language = "en" }) {
 
             <p>
               {tamil
-                ? "யூவராஜா அறக்கட்டளை கல்வி, நலம், வாய்ப்புகள், கிராமப்புற வளர்ச்சி மற்றும் தேவைப்படும் நேரங்களில் மனிதநேய ஆதரவின் மூலம் மக்களுடனும் சமூகங்களுடனும் இணைந்து செயல்படுகிறது."
+                ? "யுவராஜா அறக்கட்டளை கல்வி, நலம், வாய்ப்புகள், கிராமப்புற வளர்ச்சி மற்றும் தேவைப்படும் நேரங்களில் மனிதநேய ஆதரவின் மூலம் மக்களுடனும் சமூகங்களுடனும் இணைந்து செயல்படுகிறது."
                 : "Yuvaraja Foundation works with people and communities through education, wellbeing, opportunity, rural development and compassionate support when it is needed most."}
             </p>
 

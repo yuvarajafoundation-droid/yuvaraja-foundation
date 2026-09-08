@@ -2,9 +2,32 @@ import "./education.css";
 
 import kalvi01 from "../assets/Images/YRF Kalvi/kalvi-01.jpg";
 import kalvi02 from "../assets/Images/YRF Kalvi/kalvi-02.jpg";
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabaseClient";
 
 function Education({ language = "en" }) {
   const tamil = language === "ta";
+  const [events, setEvents] = useState([]);
+
+useEffect(() => {
+  async function loadEvents() {
+    const { data, error } = await supabase
+      .from("programme_events")
+      .select("*")
+      .eq("programme_id", "kalvi")
+      .eq("status", "active")
+      .order("event_date", { ascending: false });
+
+    if (error) {
+      console.error("Error loading events:", error);
+      return;
+    }
+
+    setEvents(data || []);
+  }
+
+  loadEvents();
+}, []);
 
   return (
     <main>
